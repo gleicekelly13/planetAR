@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Protótipo PlanetAR - Protótipo de Realidade Aumentada</title>
+
+    <!-- Bibliotecas -->
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/2.2.1/aframe/build/aframe-ar.js"></script>
+
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+    </style>
+
+</head>
+
+<body>
+    <!--Cena com AR-->
+    <a-scene vr-mode-ui="enabled: false" arjs>
+
+        <!--Marcador Hiro-->
+        <a-marker preset="hiro">
+
+            <!-- Luz ambiente -->
+            <a-light type="ambient" color="#ffffff"></a-light>
+
+            <!-- Modelo 3D da Terra -->
+            <a-entity
+                gltf-model="https://cdn.jsdelivr.net/gh/KhronosGroup/glTF-Sample-Models@master/2.0/Earth/glTF-Binary/Earth.glb"
+                position="0 0.3 0"
+                scale="0.3 0.3 0.3"
+                rotation="0 0 0"
+                animation="property: rotation; to: 0 360 0; loop: true; dur: 8000; easing: linear"
+            >  
+            </a-entity>
+
+            <!--Texto flutuante-->
+            <a-text value="PlanetAR" position="-0.4 0.9 0" color="yellow"></a-text>
+        </a-marker>
+
+        <!--Câmera-->
+        <a-entity camera></a-entity>
+    </a-scene>
+</body>
+</html>
