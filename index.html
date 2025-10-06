@@ -27,12 +27,13 @@
 
             <!-- Luz ambiente -->
             <a-light type="ambient" color="#ffffff"></a-light>
+            <a-light type="directional" position="1 1 1" intensity="1"></a-light>
 
             <!-- Modelo 3D da Terra -->
             <a-entity
                 gltf-model="url(earth.glb)"
                 position="0 0.3 0"
-                scale="0.4 0.4 0.4"
+                scale="0.35 0.35 0.35"
                 rotation="0 0 0"
                 animation="property: rotation; to: 0 360 0; loop: true; dur: 8000; easing: linear"
             >  
