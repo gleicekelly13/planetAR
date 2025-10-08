@@ -25,14 +25,16 @@
         <!--Marcador Hiro-->
         <a-marker preset="hiro">
 
-            <!-- Luz ambiente -->
-            <a-light type="ambient" color="#ffffff"></a-light>
-            <a-light type="directional" position="1 1 1" intensity="1"></a-light>
+            <!-- Luz ambiente suave -->
+            <a-light type="ambient" color="#ffffff" intensity="1"></a-light>
 
-            <!-- Modelo 3D da Terra -->
+            <!-- Luz direcional (realça as cores do planeta) -->
+            <a-light type="directional" position="1 1 1" intensity="0.8"></a-light>
+
+            <!-- Planeta estilizado -->
             <a-entity
                 gltf-model="url(earth.glb)"
-                position="0 0.3 0"
+                position="0 0.4 0"
                 scale="0.35 0.35 0.35"
                 rotation="0 0 0"
                 animation="property: rotation; to: 0 360 0; loop: true; dur: 8000; easing: linear"
@@ -40,7 +42,14 @@
             </a-entity>
 
             <!--Texto flutuante-->
-            <a-text value="PlanetAR" position="-0.4 0.9 0" color="yellow"></a-text>
+            <a-text 
+                value="PlanetAR" 
+                position="-0.5 1.1 0" 
+                color="yellow"
+                scale="1.5 1.5 1.5"
+                align="center"
+            >    
+            </a-text>
         </a-marker>
 
         <!--Câmera-->
