@@ -32,9 +32,9 @@
             <a-light type="ambient" color="#ffffff" intensity="0.8"></a-light>
 
             <!-- Luz direcional (realça as cores do planeta) -->
-            <a-light type="directional" position="2 4 2" intensity="1.2"></a-light>
+            <a-light type="directional" color="aaddff" position="2 4 2" intensity="1.2"></a-light>
 
-            <!-- Planeta 3D -->
+            <!-- Planeta Terra 3D -->
             <a-entity
                 gltf-model="url(earth.glb)"
                 position="0 0.5 0"
@@ -44,10 +44,27 @@
             >  
             </a-entity>
 
+            <!-- Grupo orbital da Lua -->
+             <a-entity
+                id="orbita-lua"
+                position="0 0.5 0"
+                animation="property: rotation; to: 0 360 0; loop: true; dur: 10000; easing: linear">
+                
+                <!-- Lua (esfera pequena) -->
+                 <a-sphere
+                    position="0.8 0 0"
+                    radius="0.08"
+                    color="#cccccc"
+                    segments-width="32"
+                    segments-height="32"
+                    material="metalness:0.2; roughness:1"
+                 ></a-sphere>
+            </a-entity>
+
             <!--Texto flutuante-->
             <a-text 
                 value="PlanetAR" 
-                position="-0 3.5 0" 
+                position="-0 3.0 0" 
                 color="yellow"
                 scale="1.8 1.8 1.8"
                 align="center"
