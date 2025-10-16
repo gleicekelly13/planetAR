@@ -28,47 +28,58 @@
         <!--Marcador Hiro-->
         <a-marker preset="hiro">
 
-            <!-- Luz ambiente suave -->
-            <a-light type="ambient" color="#ffffff" intensity="0.8"></a-light>
+            <!-- Luz ambiente -->
+            <a-light type="ambient" color="#ffffff" intensity="0.5"></a-light>
 
-            <!-- Luz direcional (realça as cores do planeta) -->
-            <a-light type="directional" color="aaddff" position="2 4 2" intensity="1.2"></a-light>
+            <!-- Luz direcional simulando o sol -->
+            <a-light type="directional" color="#ffffff" position="2 1 3" intensity="1.2"></a-light>
 
-            <!-- Planeta Terra 3D -->
-            <a-entity
-                gltf-model="url(earth.glb)"
-                position="0 0.5 0"
-                scale="0.4 0.4 0.4"
-                rotation="0 0 0"
-                animation="property: rotation; to: 0 360 0; loop: true; dur: 18000; easing: linear"
-            >  
+            <!-- Grupo da Terra e Lua -->
+            <a-entity id="sistema-terra">
+
+                <!-- Terra -->
+                 <a-entity
+                    gltf-model="modelos/earth.glb"
+                    position="0 0.3 0"
+                    scale="0.3 0.3 0.3"
+                    rotation="0 0 0"
+                    animation="property: rotation; to: 0 360 0; loop: true; dur: 8000; easing: linear"
+                 > 
+                 </a-entity>
+
+                 <!-- Lua orbitando -->
+                  <a-entity 
+                    id="orbita-lua"
+                    position="0 0.3 0"
+                    animation="property: rotation; to: 0 360 0; loop: true; dur: 8000; easing: linear"
+                  >
+
+                    <a-sphere
+                        position="0.5 0 0"
+                        radius="0.05"
+                        rotation="0 0 0"
+                        animation="property: rotation; to: 0 360 0; loop: true; dur: 4000; easing: linear"
+                    >
+                    </a-sphere>
+                  </a-entity>
+
             </a-entity>
 
-            <!-- Grupo orbital da Lua -->
-             <a-entity
-                id="orbita-lua"
-                position="0 0.5 0"
-                animation="property: rotation; to: 0 360 0; loop: true; dur: 10000; easing: linear">
-                
-                <!-- Lua (esfera pequena) -->
-                 <a-sphere
-                    position="0.8 0 0"
-                    radius="0.08"
-                    color="#cccccc"
-                    segments-width="32"
-                    segments-height="32"
-                    material="metalness:0.2; roughness:1"
-                 ></a-sphere>
-            </a-entity>
+            <!-- Atmosfera azulada em volta da Terra -->
+            <a-sphere
+                position="0 0.3 0"
+                radius="0.32"
+                color="#3399ff"
+                opacity="0.15"
+            >
+            </a-sphere>
 
             <!--Texto flutuante-->
             <a-text 
                 value="PlanetAR" 
-                position="-0 3.5 0" 
+                position="-0.3 1.0 0" 
                 color="yellow"
-                scale="1.5 1.5 1.5"
-                align="center"
-                rotation="0 0 0"
+                scale="0.8 0.8 0.8"
             >    
             </a-text>
         </a-marker>
